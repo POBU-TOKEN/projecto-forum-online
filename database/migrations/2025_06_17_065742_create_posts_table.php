@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->bigIncrements('idpost');
-            $table->string('title',100);
             $table->text('content');
             $table->integer('author');
             $table->foreign('author')->references('iduser')->on('users')->onDelete('cascade');
