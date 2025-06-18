@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('topics', function (Blueprint $table) {
             $table->bigIncrements('idtopic');
-            $table->integer('author');
+            $table->unsignedBigInteger('author');
             $table->foreign('author')->references('iduser')->on('users')->onDelete('cascade');
             $table->string('title',100);
             $table->text('description');
             $table->date('date_share');
-            $table->integer('category');
+            $table->unsignedBigInteger('category');
             $table->foreign('category')->references('idcategory')->on('categorys')->onDelete('cascade');
             $table->timestamps();
         });

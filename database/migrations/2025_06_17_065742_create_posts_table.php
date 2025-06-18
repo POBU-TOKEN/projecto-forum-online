@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->bigIncrements('idpost');
             $table->text('content');
-            $table->integer('author');
+            $table->unsignedBigInteger('author');
             $table->foreign('author')->references('iduser')->on('users')->onDelete('cascade');
-            $table->integer('topic_id');
+            $table->unsignedBigInteger('topic_id');
             $table->foreign('topic_id')->references('idtopic')->on('topics')->onDelete('cascade');
             $table->timestamps();
         });
